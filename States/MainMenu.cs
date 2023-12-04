@@ -7,12 +7,17 @@ public class MainMenu : MonoBehaviour
     // Called when the "Play" button is clicked
     public void OnPlayButton ()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     
     public void OnInstructionsButton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
+    }
+
+    public void OnCloseButton()
+    {
+        SceneManager.LoadScene(1);
     }
 
     // Called when the "Quit" button clicked
