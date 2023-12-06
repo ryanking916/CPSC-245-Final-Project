@@ -21,11 +21,11 @@ namespace GameStates
     {
         RaycastHit2D[] hitsDown;
 
-        hitsDown = Physics2D.RaycastAll(Transform.position, -Vector2.up);
+        hitsDown = Physics2D.RaycastAll(transform.position, -Vector2.up);
 
         for (int i = 0; i < hitsDown.Length; i++)
         {
-            float distance = Mathf.Abs(hitsDown[i].point.y - Transform.position.y);
+            float distance = Mathf.Abs(hitsDown[i].point.y - transform.position.y);
             if (distance < 0.4f)
             {
                 canMoveDown = true;
@@ -35,11 +35,11 @@ namespace GameStates
         
         RaycastHit2D[] hitsUp;
 
-        hitsUp = Physics2D.RaycastAll(Transform.position, -Vector2.up);
+        hitsUp = Physics2D.RaycastAll(transform.position, -Vector2.up);
 
         for (int i = 0; i < hitsUp.Length; i++)
         {
-            float distance = Mathf.Abs(hitsUp[i].point.y - Transform.position.y);
+            float distance = Mathf.Abs(hitsUp[i].point.y - transform.position.y);
             if (distance < 0.4f)
             {
                 canMoveUp = true;
@@ -49,11 +49,11 @@ namespace GameStates
         
         RaycastHit2D[] hitsRight;
 
-        hitsRight = Physics2D.RaycastAll(Transform.position, -Vector2.right);
+        hitsRight = Physics2D.RaycastAll(transform.position, -Vector2.right);
 
         for (int i = 0; i < hitsRight.Length; i++)
         {
-            float distance = Mathf.Abs(hitsRight[i].point.y - Transform.position.y);
+            float distance = Mathf.Abs(hitsRight[i].point.y - transform.position.y);
             if (distance < 0.4f)
             {
                 canMoveRight = true;
