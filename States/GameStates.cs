@@ -1,4 +1,8 @@
 
+using GameStates;
+using UnityEngine;
+using UnityEngine.UI;
+
 public class ChapmanState
 {
     enum ChapManState
@@ -11,6 +15,13 @@ public class ChapmanState
         Win,
         Loss
     }
+    
+
+    public GameObject currentNode;
+    public float speed = 4f;
+
+    public string direction = "";
+    public string lastMovingDirection = "";
 
     class Program
     {
@@ -21,13 +32,51 @@ public class ChapmanState
             while (true)
             {
                 Update();
-                Console.Clear();
                 ChapMan();
             }
         }
 
         static void Update()
         {
+            NodeController currentNodeController = currentNode.GetComponent<NodeController>();
+
+            Transform.position = Vector2.MoveTowards(Transform.position, currentNodeController.transform.position,
+                speed * Time.deltaTime);
+
+            bool reversedirection = false;
+            if (
+                (direction == "left" && lastMovingDirection == "right")
+                || (direction == "left" && lastMovingDirection == "right")
+                || (direction == "left" && lastMovingDirection == "right")
+                || (direction == "left" && lastMovingDirection == "right")
+            )
+            {
+                reversedirection = true;
+            }
+
+                if ((Transform.position.x == currentNodeController.transform.position.x &&
+                    Transform.position.y == currentNodeController.transform.position.y) || reversedirection)
+            {
+                GameObject newNode = currentNodeController.GetNodeFromDirection(direction);
+
+                if (newNode != null)
+                {
+                    currentNode = newNode;
+                    lastMovingDirection = direction;
+                }
+                else
+                {
+                    direction = lastMovingDirection;
+                    newNode = currentNodeController.GetNodeFromDirection(direction);
+                    if (newNode != null)
+                    {
+                        currentNode = newNode;
+                    }
+                }
+            }
+
+            public void SetDirection(string newDirection);
+            
             switch (currentState)
             {
                 case ChapManState.Idle:
