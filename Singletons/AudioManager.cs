@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -12,13 +10,27 @@ public class AudioManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                Debug.Log("Audio Manager is null.");
+                Debug.LogError("Audio Manager is null.");
             }
 
             return _instance;
         }
     }
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }
+
 
 
 
