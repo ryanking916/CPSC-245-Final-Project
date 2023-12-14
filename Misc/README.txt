@@ -17,6 +17,8 @@ PEERS (IF APPLICABLE)
   a. https://www.youtube.com/playlist?list=PLHrN7HL-00e8HECYZFE-9i9Qf_SRqWxZh
   b. ChatGPT for error handling
   c. https://www.youtube.com/watch?v=TKt_VlMn_aA&t=1202s
+  d. Class Textbook https://gameprogrammingpatterns.com/observer.html
+  e. Previous Class Assignments
 
 5. INSTRUCTIONS FOR RUNNING THE ASSIGNMENT
   a. Open the Application
